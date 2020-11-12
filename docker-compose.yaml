@@ -1,0 +1,22 @@
+version : "3"
+
+services:
+  mongo:
+    image : mongo:3
+    container_name : mongo
+    restart : always
+    environment :
+      MONGO_INITDB_ROOT_USERNAME : root
+      MONGO_INITDB_ROOT_PASSWORD : example
+
+  api :
+    image : node:15
+    container_name : api_pdfgen
+    links :
+      - mongo
+    port :
+      - "8080:8080"
+    working_dir : "/app"
+    volumes :
+      - "./:/app"
+    command : npm i && npm start

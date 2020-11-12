@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: PDF_Gen API
+  description: API pour génèrer des PDF
+  version: 0.1.0
+servers:
+  - url: https://localhost:8080/api/v1
+    description: Optional server description, e.g. Main (production) server
+paths:
+  /subscribe:
+    post:
+      summary: Subscribe to application
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '201':    # status code
+          description: Status of request
+          content:
