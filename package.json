@@ -18,6 +18,7 @@
     "js-yaml": "^3.14.0",
     "jsonwebtoken": "^8.5.1",
     "markdown-pdf": "^10.0.0",
+    "md-to-pdf": "^3.1.2",
     "mocha": "^8.2.1",
     "mongoose": "^5.10.13",
     "nodemon": "^2.0.6",

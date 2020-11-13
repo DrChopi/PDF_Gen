@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken"
 import val from "../modules/validator.module"
+import mdToPdf from "md-to-pdf"
 
 async function valJWT ( tok, db ) {
     try {
@@ -27,7 +28,9 @@ export default {
             let page = req.path.split('/')
             switch ( page[2] ) {
                 case "download" :
-                    res.send(await db.get("doc", { _id : page[3] } )[0])
+                    let data = await mdToPdf.mdToPdf({ content: (await db.get("doc", { _id : page[3] } ))[0].content })
+                    res.type('pdf');
+                    res.send(data.content)
                     break;
                 case "getTemplate" :
                     res.send(await db.get("template", { _id : page[3] } ))
